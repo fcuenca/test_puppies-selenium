@@ -1,27 +1,42 @@
 Given(/^I am on the puppy adoption site$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.navigate.to "http://puppies.herokuapp.com"
 end
 
 When(/^I click the View Details button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.find_element(:xpath, '//input[@value="View Details"]').click
 end
 
 When(/^I click the Adopt Me button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.find_element(:xpath, '//input[@value="Adopt Me!"]').click
 end
 
 When(/^I click the Complete the Adoption button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.find_element(:xpath, '//input[@value="Complete the Adoption"]').click
 end
 
-When(/^I enter "([^"]*)" in the name field$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter "([^"]*)" in the name field$/) do |name|
+  @browser.find_element(:id, "order_name").send_keys(name)
 end
 
-When(/^I enter "([^"]*)" in the address field And I enter "([^"]*)" in the email field And I select "([^"]*)" from the pay with dropdown And I click the Place Order button$/) do |arg1, arg2, arg3|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter "([^"]*)" in the address field$/) do |address|
+  @browser.find_element(:id, "order_address").send_keys(address)
 end
 
-Then(/^I should see "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I enter "([^"]*)" in the email field$/) do |email|
+  @browser.find_element(:id, "order_email").send_keys(email)
+end
+
+When(/^I select "([^"]*)" from the pay with dropdown$/) do |pay_type|
+  dropDownMenu = @browser.find_element(:id, "order_pay_type")
+  option = Selenium::WebDriver::Support::Select.new(dropDownMenu)
+  option.select_by(:text, pay_type)
+end
+
+When(/^I click the Place Order button$/) do
+  @browser.find_element(:xpath, '//input[@value="Place Order"]').submit
+end
+
+Then(/^I should see "([^"]*)"$/) do |expected|
+  notice = @browser.find_element(:id, "notice")
+  expect(notice.text).to include expected
 end
