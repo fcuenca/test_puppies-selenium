@@ -3,9 +3,9 @@ Feature: Adopting puppies
   I want to adopt puppies
   So they can chew my furniture
 
-Scenario Outline: Adopting one puppy
+Scenario Outline: Adopting a specific puppy
   Given I am on the puppy adoption site
-  When I click the View Details button
+  When I click the View Details button for the "<puppy_ordinal>" puppy
   And I click the Adopt Me button
   And I click the Complete the Adoption button
   And I enter "<name>" in the name field
@@ -16,7 +16,7 @@ Scenario Outline: Adopting one puppy
   Then I should see "Thank you for adopting a puppy!"
 
   Examples:
-  | name    | address     | email             | pay_type      |
-  | Cheezy  | 123 Main St | cheezy@example.com| Credit card   |
-  | Joseph  | 555 South St| joe@guru.com      | Check         |
-  | Jared   | 234 Leandog | doc@dev.com       | Purchase order|
+  | name    | puppy_ordinal | address     | email             | pay_type      |
+  | Cheezy  | 2             | 123 Main St | cheezy@example.com| Credit card   |
+  | Joseph  | 1             | 555 South St| joe@guru.com      | Check         |
+  | Jared   | 3             | 234 Leandog | doc@dev.com       | Purchase order|

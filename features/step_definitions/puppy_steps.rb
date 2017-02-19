@@ -2,8 +2,9 @@ Given(/^I am on the puppy adoption site$/) do
   @browser.navigate.to "http://puppies.herokuapp.com"
 end
 
-When(/^I click the View Details button$/) do
-  @browser.find_element(:xpath, '//input[@value="View Details"]').click
+When(/^I click the View Details button for the "([^"]*)" puppy$/) do |puppy_ordinal|
+  puppy_index = puppy_ordinal.to_i - 1
+  @browser.find_elements(:xpath, '//input[@value="View Details"]')[puppy_index].click
 end
 
 When(/^I click the Adopt Me button$/) do
