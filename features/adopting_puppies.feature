@@ -5,7 +5,7 @@ Feature: Adopting puppies
 
 Scenario Outline: Adopting a specific puppy
   Given I am on the puppy adoption site
-  When I click the View Details button for the "<puppy_ordinal>" puppy
+  When I click the View Details button for the puppy in the <puppy_ordinal> place
   And I click the Adopt Me button
   And I click the Complete the Adoption button
   And I enter "<name>" in the name field
@@ -17,6 +17,6 @@ Scenario Outline: Adopting a specific puppy
 
   Examples:
   | name    | puppy_ordinal | address     | email             | pay_type      |
-  | Cheezy  | 2             | 123 Main St | cheezy@example.com| Credit card   |
-  | Joseph  | 1             | 555 South St| joe@guru.com      | Check         |
-  | Jared   | 3             | 234 Leandog | doc@dev.com       | Purchase order|
+  | Cheezy  | second        | 123 Main St | cheezy@example.com| Credit card   |
+  | Joseph  | first         | 555 South St| joe@guru.com      | Check         |
+  | Jared   | third         | 234 Leandog | doc@dev.com       | Purchase order|
