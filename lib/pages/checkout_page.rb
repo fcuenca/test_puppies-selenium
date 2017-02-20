@@ -3,10 +3,10 @@ class CheckoutPage
     include PageObject
 
     DEFAULT_DATA = {
-      'name' => 'cheezy',
-      'address' => '123 Main Street',
-      'email' => 'cheezy@example.com',
-      'pay_type' => 'Purchase order'
+        'name' => Faker::Name.name,
+        'address' => Faker::Address.street_address,
+        'email' => Faker::Internet.email,
+        'pay_type' => 'Credit card'
     }
 
     text_field(:name, id: 'order_name')
