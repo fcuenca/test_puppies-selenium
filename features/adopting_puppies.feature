@@ -3,8 +3,10 @@ Feature: Adopting puppies
   I want to adopt puppies
   So they can chew my furniture
 
-Scenario Outline: Adopting a specific puppy
+Background:
   Given I am on the puppy adoption site
+
+Scenario Outline: Adopting a specific puppy
   When I click the View Details button for the puppy in the <puppy_ordinal> place
   And I click the Adopt Me button
   And I click the Complete the Adoption button
@@ -23,7 +25,6 @@ Scenario Outline: Adopting a specific puppy
 
 
 Scenario: Adopting two puppies
-  Given I am on the puppy adoption site
   When I click the View Details button for the puppy in the first place
   And I click the Adopt Me button
   And I click the Adopt Another Puppy button
