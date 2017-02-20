@@ -6,7 +6,6 @@ Feature: Puppy Admin functions
 Background:
   Given I am on the puppy adoption site
 
-@wip
 Scenario: Verify message when adoption is processed
   Given I have a pending adoption for "Tom Jones"
   When I process that adoption

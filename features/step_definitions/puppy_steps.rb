@@ -28,10 +28,7 @@ When(/^I complete the adoption using a Credit card$/) do
 end
 
 When /^I complete the adoption of a puppy$/ do
-   on(HomePage).select_puppy
-   on(DetailsPage).add_to_cart
-   on(ShoppingCartPage).proceed_to_checkout
-   on(CheckoutPage).checkout
+  navigate_all
 end
 
 When(/^I click the Complete the Adoption button$/) do
@@ -83,10 +80,7 @@ Then(/^I should see "([^"]*)" as the cart total$/) do |total|
 end
 
 When(/^I checkout leaving the name field blank$/) do
-  on(HomePage).select_puppy
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout('name' => '')
+  navigate_to(CheckoutPage).checkout('name' => '')
 end
 
 Then(/^I should see the error message "([^"]*)"$/) do |msg|
@@ -94,10 +88,7 @@ Then(/^I should see the error message "([^"]*)"$/) do |msg|
 end
 
 Given /^I have a pending adoption for "([^"]*)"$/ do |name|
-  on(HomePage).select_puppy
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout('name' => name)
+  navigate_to(CheckoutPage).checkout('name' => name)
 end
 
 When /^I process that adoption$/ do
