@@ -6,7 +6,6 @@ Feature: Adopting puppies
 Background:
   Given I am on the puppy adoption site
 
-@wip
 Scenario: Thank you message should be displayed when adopting a puppy
   When I complete the adoption of a puppy
   Then I should see "Thank you for adopting a puppy!"
@@ -50,3 +49,8 @@ Scenario: Validate cart with two puppies
   And I should see "Hanna" as the name for line item 2
   And I should see "$22.99" as the subtotal for line item 2
   And I should see "$57.94" as the cart total
+
+@wip
+Scenario: Name is a required field
+  When I checkout leaving the name field blank
+  Then I should see the error message "Name can't be blank"

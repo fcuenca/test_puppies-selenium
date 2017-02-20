@@ -1,7 +1,9 @@
+require_relative 'error_panel'
 
 class CheckoutPage
-    include PageObject
     include DataMagic
+    include PageObject
+    include ErrorPanel
 
     text_field(:name, id: 'order_name')
     text_field(:address, id: 'order_address')
