@@ -43,3 +43,18 @@ Then(/^I should see "([^"]*)"$/) do |expected|
   notice = on(HomePage).notice
   expect(notice).to include expected
 end
+
+Then(/^I should see "([^"]*)" as the name for line item (\d+)$/) do |name, index|
+  cart = on(ShoppingCartPage)
+  expect(cart.name_for_line_item(index)).to include name
+end
+
+Then(/^I should see "([^"]*)" as the subtotal for line item (\d+)$/) do |sub_total, index|
+  cart = on(ShoppingCartPage)
+  expect(cart.subtotal_for_line_item(index)).to eq sub_total
+end
+
+Then(/^I should see "([^"]*)" as the cart total$/) do |total|
+  cart = on(ShoppingCartPage)
+  expect(cart.cart_total).to eq total
+end
