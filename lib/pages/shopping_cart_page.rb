@@ -22,7 +22,7 @@ class ShoppingCartPage
   private
 
   def table_value(lineitem, column)
-    row = (lineitem.to_i - 1) * LINES_PER_PUPPY
+    row = (lineitem - 1) * LINES_PER_PUPPY
     cart_element[row][column].text
   end
 
