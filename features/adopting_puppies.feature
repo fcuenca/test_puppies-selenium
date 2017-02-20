@@ -39,17 +39,17 @@ Scenario: Adopting two puppies
   Then I should see "Thank you for adopting a puppy!"
 
 Scenario: Validate cart with one puppy
-  When I click the View Details button for the puppy in the first place
+  When I click the View Details button for "Brook"
   And I click the Adopt Me button
   Then I should see "Brook" as the name for line item 1
   And I should see "$34.95" as the subtotal for line item 1
   And I should see "$34.95" as the cart total
 
 Scenario: Validate cart with two puppies
-  When I click the View Details button for the puppy in the first place
+  When I click the View Details button for "Brook"
   And I click the Adopt Me button
   And I click the Adopt Another Puppy button
-  When I click the View Details button for the puppy in the second place
+  When I click the View Details button for "Hanna"
   And I click the Adopt Me button
   Then I should see "Brook" as the name for line item 1
   And I should see "$34.95" as the subtotal for line item 1

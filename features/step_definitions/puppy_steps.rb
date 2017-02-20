@@ -7,6 +7,10 @@ When(/^I click the View Details button for (the puppy in the .* place)$/) do |pu
   on(HomePage).select_puppy_number(puppy_index)
 end
 
+When /^I click the View Details button for "([^"]*)"$/ do |name|
+  on(HomePage).select_puppy name
+end
+
 When(/^I click the Adopt Me button$/) do
   on(DetailsPage).add_to_cart
 end
