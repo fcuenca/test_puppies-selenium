@@ -19,6 +19,10 @@ When(/^I complete the adoption with:$/) do |table|
   on(CheckoutPage).checkout(table.hashes.first)
 end
 
+When(/^I complete the adoption$/) do
+  on(CheckoutPage).checkout
+end
+
 When(/^I click the Complete the Adoption button$/) do
   on(ShoppingCartPage).proceed_to_checkout
 end
