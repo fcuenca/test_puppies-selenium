@@ -12,3 +12,7 @@ Cucumber::Rake::Task.new(:wip) do |t|
 end
 
 task :default => :features
+
+task :bundler do
+  sh 'bundle install --path vendor/bundle'
+end
