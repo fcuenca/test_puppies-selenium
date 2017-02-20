@@ -27,6 +27,13 @@ When(/^I complete the adoption using a Credit card$/) do
   on(CheckoutPage).checkout('pay_type' => 'Credit card')
 end
 
+When /^I complete the adoption of a puppy$/ do
+   on(HomePage).select_puppy
+   on(DetailsPage).add_to_cart
+   on(ShoppingCartPage).proceed_to_checkout
+   on(CheckoutPage).checkout
+end
+
 When(/^I click the Complete the Adoption button$/) do
   on(ShoppingCartPage).proceed_to_checkout
 end

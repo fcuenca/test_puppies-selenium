@@ -7,15 +7,11 @@ Background:
   Given I am on the puppy adoption site
 
 @wip
-Scenario: Adopting a puppy using all default data
-  When I click the View Details button for "Brook"
-  And I click the Adopt Me button
-  And I click the Complete the Adoption button
-  And I complete the adoption
+Scenario: Thank you message should be displayed when adopting a puppy
+  When I complete the adoption of a puppy
   Then I should see "Thank you for adopting a puppy!"
 
-@wip
-Scenario: Adopting a puppy using partial default data
+Scenario: Adopting a puppy using a credit card
   When I click the View Details button for "Brook"
   And I click the Adopt Me button
   And I click the Complete the Adoption button

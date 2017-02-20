@@ -13,7 +13,12 @@ class HomePage
   end
 
   def select_puppy_number(num)
-      button_element(value: 'View Details', index: num - 1).click
+    button_element(value: 'View Details', index: num - 1).click
+  end
+
+  def select_puppy(name = 'Brook')
+    index = index_for(name)
+    button_element(:value => 'View Details', :index => index).click
   end
 
   private
