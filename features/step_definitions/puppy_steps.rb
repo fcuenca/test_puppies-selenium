@@ -90,5 +90,5 @@ When(/^I checkout leaving the name field blank$/) do
 end
 
 Then(/^I should see the error message "([^"]*)"$/) do |msg|
-  expect(@current_page.error_messages).to include msg
+  expect(@current_page).to have_error_message msg
 end
