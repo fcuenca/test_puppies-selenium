@@ -15,6 +15,10 @@ When(/^I click the Adopt Me button$/) do
   on(DetailsPage).add_to_cart
 end
 
+When(/^I complete the adoption with:$/) do |table|
+  on(CheckoutPage).checkout(table.hashes.first)
+end
+
 When(/^I click the Complete the Adoption button$/) do
   on(ShoppingCartPage).proceed_to_checkout
 end

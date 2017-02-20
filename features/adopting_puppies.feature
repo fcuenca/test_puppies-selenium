@@ -6,23 +6,15 @@ Feature: Adopting puppies
 Background:
   Given I am on the puppy adoption site
 
-Scenario Outline: Adopting a specific puppy
-  When I click the View Details button for the puppy in the <puppy_ordinal> place
+@wip
+Scenario: Adopting a specific puppy
+  When I click the View Details button for "Brook"
   And I click the Adopt Me button
   And I click the Complete the Adoption button
-  And I enter "<name>" in the name field
-  And I enter "<address>" in the address field
-  And I enter "<email>" in the email field
-  And I select "<pay_type>" from the pay with dropdown
-  And I click the Place Order button
+  And I complete the adoption with:
+    | name   | address         | email              | pay_type |
+    | Cheezy | 123 Main Street | cheezy@example.com | Check    |
   Then I should see "Thank you for adopting a puppy!"
-
-  Examples:
-  | name    | puppy_ordinal | address     | email             | pay_type      |
-  | Cheezy  | second        | 123 Main St | cheezy@example.com| Credit card   |
-  | Joseph  | first         | 555 South St| joe@guru.com      | Check         |
-  | Jared   | third         | 234 Leandog | doc@dev.com       | Purchase order|
-
 
 Scenario: Adopting two puppies
   When I click the View Details button for the puppy in the first place
