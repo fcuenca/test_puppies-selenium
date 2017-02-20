@@ -1,18 +1,18 @@
 Given(/^I am on the puppy adoption site$/) do
-  @browser.navigate.to "http://puppies.herokuapp.com"
+  visit(HomePage)
 end
 
 When(/^I click the View Details button for (the puppy in the .* place)$/) do |puppy_ordinal|
-  puppy_index = puppy_ordinal.to_i - 1
-  @browser.find_elements(:xpath, '//input[@value="View Details"]')[puppy_index].click
+  puppy_index = puppy_ordinal.to_i
+  on(HomePage).select_puppy_number(puppy_index)
 end
 
 When(/^I click the Adopt Me button$/) do
-  @browser.find_element(:xpath, '//input[@value="Adopt Me!"]').click
+  on(DetailsPage).add_to_cart
 end
 
 When(/^I click the Complete the Adoption button$/) do
-  @browser.find_element(:xpath, '//input[@value="Complete the Adoption"]').click
+  on(ShoppingCartPage).proceed_to_checkout
 end
 
 When(/^I enter "([^"]*)" in the name field$/) do |name|
@@ -36,6 +36,6 @@ When(/^I click the Place Order button$/) do
 end
 
 Then(/^I should see "([^"]*)"$/) do |expected|
-  notice = @browser.find_element(:id, "notice")
-  expect(notice.text).to include expected
+  notice = on(HomePage).notice
+  expect(notice).to include expected
 end
