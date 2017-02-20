@@ -20,3 +20,19 @@ Scenario Outline: Adopting a specific puppy
   | Cheezy  | second        | 123 Main St | cheezy@example.com| Credit card   |
   | Joseph  | first         | 555 South St| joe@guru.com      | Check         |
   | Jared   | third         | 234 Leandog | doc@dev.com       | Purchase order|
+
+
+Scenario: Adopting two puppies
+  Given I am on the puppy adoption site
+  When I click the View Details button for the puppy in the first place
+  And I click the Adopt Me button
+  And I click the Adopt Another Puppy button
+  When I click the View Details button for the puppy in the second place
+  And I click the Adopt Me button
+  And I click the Complete the Adoption button
+  And I enter "Cheezy" in the name field
+  And I enter "123 Main Street" in the address field
+  And I enter "cheezy@example.com" in the email field
+  And I select "Credit card" from the pay with dropdown
+  And I click the Place Order button
+  Then I should see "Thank you for adopting a puppy!"

@@ -15,6 +15,10 @@ When(/^I click the Complete the Adoption button$/) do
   on(ShoppingCartPage).proceed_to_checkout
 end
 
+When(/^I click the Adopt Another Puppy button$/) do
+  on(ShoppingCartPage).continue_shopping
+end
+
 When(/^I enter "([^"]*)" in the name field$/) do |name|
   on(CheckoutPage).name = name
 end
