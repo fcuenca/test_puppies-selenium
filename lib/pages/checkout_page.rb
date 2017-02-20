@@ -1,13 +1,7 @@
 
 class CheckoutPage
     include PageObject
-
-    DEFAULT_DATA = {
-        'name' => Faker::Name.name,
-        'address' => Faker::Address.street_address,
-        'email' => Faker::Internet.email,
-        'pay_type' => 'Credit card'
-    }
+    include DataMagic
 
     text_field(:name, id: 'order_name')
     text_field(:address, id: 'order_address')
@@ -16,7 +10,7 @@ class CheckoutPage
     button(:place_order, value: 'Place Order')
 
     def checkout(data = {})
-      populate_page_with DEFAULT_DATA.merge(data)
+      populate_page_with data_for(:checkout_page, data)
       place_order
     end
 end
