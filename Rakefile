@@ -3,6 +3,13 @@ require 'cucumber'
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 
+runtime_env = ENV['ENV']
+if runtime_env != nil
+  ENV['FIG_NEWTON_FILE'] = "#{runtime_env}.yml"
+else
+  ENV['FIG_NEWTON_FILE'] = 'heroku.yml'
+end
+
 Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'default'
 end

@@ -11,8 +11,8 @@ RSpec.configure do |config|
 
   config.before do
     @browser = Selenium::WebDriver.for :firefox
-    @browser.manage.timeouts.implicit_wait = 30 # seconds
-    @browser.manage.timeouts.page_load = 30 # seconds
+    @browser.manage.timeouts.implicit_wait = 60 # seconds
+    @browser.manage.timeouts.page_load = 60 # seconds
   end
 
   config.after do
