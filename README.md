@@ -1,6 +1,6 @@
 # Happy Puppy Cucumber Tests
 
-Implementation of Cucumber tests for the Happy Puppy application, from Jeff "Cheezy" Morgan's ["Cucumber and Cheese" book](https://leanpub.com/cucumber_and_cheese)
+Implementation of Cucumber tests for the Happy Puppy application, from Jeff @cheezy Morgan's ["Cucumber and Cheese" book](https://leanpub.com/cucumber_and_cheese)
 
 ## Running the Tests
 
@@ -14,14 +14,18 @@ rake specs     # run rspecs
 
 The default target is to run all the features against the live application deployed to Heroku (http://puppies.herokuapp.com/).
 
-The environment can be selected using an environment variable:
+#### Running the Puppies App locally
+
+Get the code from https://github.com/cheezy/puppies, and follow the instructions there to get the initial database set up and the app running.
+
+Before running the tests, the 'admin' user needs to be added to the application by visiting http://localhost:3000/users. Create a new user, with the user name and password specified in ```config/environments/local.yml```
+
+To run the tests agains the local app, execute:
 
 ```
 rake ENV=local
 ```
-
 Or:
-
 ```
 export ENV=local
 rake
@@ -53,7 +57,7 @@ ch5                 | completed chapter 5
 
 ### Dependencies
 
-All the gems are installed into ```vendor/bundle``` and checked in (why? This is something I learnt from James Shore -- see [here](http://www.letscodejavascript.com/v3/blog/2014/12/the_reliable_build))
+All the gems are installed into ```vendor/bundle``` and checked in (why? This is something I learnt from James Shore (@jamesshore) -- see [here](http://www.letscodejavascript.com/v3/blog/2014/12/the_reliable_build))
 
 To update the dependencies run:
 
